@@ -1,0 +1,14 @@
+<mat-card>
+
+  <mat-form-field>
+    <mat-label>Post Title</mat-label>
+    <input matInput type="text" [(ngModel)]="enteredTitle" placeholder="Today's date" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Enter your message below</mat-label>
+    <input matInput type="text" [(ngModel)]="enteredContent" placeholder="Dear diary..." />
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="onAddPost()">Submit Message</button>
+</mat-card>
