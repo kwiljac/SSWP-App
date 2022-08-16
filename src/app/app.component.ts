@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Post } from './posts/post.model';
 
 @Component({
   selector: 'app-root',
@@ -6,11 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'assignment-1';
-
-  storedPosts: any[] = [];
+  title = 'Keko\'s App';
+  /* REPLACED BY POSTSERVICE:
+  storedPosts: Post[] = [];
 
   onPostAdded(post: any) {
     this.storedPosts.push(post);
   }
+  */
 }
