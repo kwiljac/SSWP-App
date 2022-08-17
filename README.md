@@ -1,6 +1,6 @@
 # Ongoing Project by Keko Williams
-Course:   Server Side Web Programming
-Program:  Mobile App Development
+Course:   Server Side Web Programming //
+Program:  Mobile App Development //
 Cohort:   MAP-06
 
 # Netlify:
