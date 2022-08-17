@@ -1,7 +1,7 @@
 # Ongoing Project by Keko Williams
-Course:   Server Side Web Programming //
-Program:  Mobile App Development //
-Cohort:   MAP-06
+-Course:   Server Side Web Programming
+-Program:  Mobile App Development
+-Cohort:   MAP-06
 
 # Netlify:
   https://papaya-semifreddo-ba110e.netlify.app/
