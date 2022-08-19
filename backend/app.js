@@ -1,23 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const Post = require('./models/post');
+const mongoose = require('mongoose');
 
 const app = express();
 
-/*
-app.use(
-  (request, response, next) => {
-    console.log('My first middleware response.')
-    next();
-  }
-);
-
-app.use(
-  (request, response, next) => {
-    response.send('Hello from Express!')
-    next();
-  }
-);
-*/
+mongoose.connect('mongodb+srv://admin:GCROHO3OzaiT13K3@cluster0.vpn4v8h.mongodb.net/node-angular?retryWrites=true&w=majority')
+  .then ( () => {console.log('Connected to database.')} )
+  .catch( () => {console.log('Connection failed.')} )
 
 app.use(bodyParser.json());
 
@@ -38,8 +28,15 @@ app.use(
 
 app.post('/api/posts',
   (request, response, next) => {
-    const post = request.body;
-    console.log(post);
+    //const post = request.body;
+    const post = new Post({
+      title:    request.body.title,
+      content:  request.body.content
+    });
+    //console.log(post);
+
+    post.save();
+
     response.status(201).json({
       message: "Post added successfully."
     });
