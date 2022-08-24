@@ -28,49 +28,44 @@ app.use(
 
 app.post('/api/posts',
   (request, response, next) => {
-    //const post = request.body;
     const post = new Post({
       title:    request.body.title,
       content:  request.body.content
     });
-    //console.log(post);
 
-    post.save();
-
-    response.status(201).json({
-      message: "Post added successfully."
+    post.save().then(createdPost => {
+      response.status(201).json({
+        message:  "Post added successfully.",
+        postId:   createdPost._id
+      });
     });
   }
 );
 
-app.use('/api/posts',
-  (request, response, next) => {
-
-    const posts = [
-    {
-      id: '1',
-      title: 'First server-side post',
-      content: 'This is from the server.'
-    },
-    {
-      id: '2',
-      title: 'Second server-side post',
-      content: 'This is from the server.'
-    },
-    {
-      id: '3',
-      title: 'Third server-side post',
-      content: 'This is from the server.'
-    }
-  ];
-
-    response.status(200).json(
-      {
-        message: 'Posts fetched successfully',
-        posts: posts
+app.get('/api/posts',(request, response, next) =>
+{
+  Post.find()
+    .then(
+      documents => {
+        console.log(documents);
+        response.status(200).json(
+          {
+            message: 'Posts fetched successfully',
+            posts: documents
+          }
+        );
       }
-    );
-  }
-);
+    )
+    .catch();
+});
+
+app.delete("/api/posts/:id", (request, response, next) => {
+  //console.log(request.params.id);
+  Post.deleteOne({_id: request.params.id})
+    .then(result => {
+      console.log(result);
+      response.status(200).json({message: "Post deleted."});
+    })
+});
 
 module.exports = app;

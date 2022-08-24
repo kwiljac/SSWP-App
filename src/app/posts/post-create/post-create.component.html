@@ -3,24 +3,24 @@
   <form (submit)="onAddPost(postForm)" #postForm="ngForm">
 
     <mat-form-field appearance="fill">
-      <mat-label>Post Title</mat-label>
+      <mat-label>Name</mat-label>
       <input
         matInput
         type="text"
         name="title"
-        placeholder="Add a title..."
+        placeholder="Your name..."
         ngModel
         required
-        minlength="3"
+        minlength="1"
         #title="ngModel"
         />
-        <mat-error *ngIf="title.invalid">Please enter a post title (min. 3 characters.)</mat-error>
+        <mat-error *ngIf="title.invalid">Please enter your name.</mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-      <mat-label>Post Content</mat-label>
+      <mat-label>Message</mat-label>
       <textarea
-        rows="6"
+        rows="3"
         matInput
         type="text"
         name="content"
@@ -36,7 +36,7 @@
       mat-raised-button
       color="primary"
       type="submit"
-      >Submit Post</button>
+      >Sign Guest Book</button>
 
   </form>
 

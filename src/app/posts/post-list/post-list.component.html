@@ -1,5 +1,5 @@
 <mat-accordion multi="true" *ngIf="posts.length > 0">
-  <mat-expansion-panel *ngFor="let post of posts">
+  <mat-expansion-panel *ngFor="let post of posts" [expanded]="true">
 
     <!-- Post Header -->
     <mat-expansion-panel-header>
@@ -14,9 +14,11 @@
     <!-- Action Row Buttons -->
     <mat-action-row color="primary">
       <button mat-mini-fab color="accent"><mat-icon>edit</mat-icon></button>
-      <button mat-mini-fab color="warn"><mat-icon>delete</mat-icon></button>
+      <button mat-mini-fab color="warn"
+        (click)="onDelete(post.id)"><mat-icon>delete</mat-icon></button>
     </mat-action-row>
 
   </mat-expansion-panel>
 </mat-accordion>
-<p class="info-text mat-body-1" *ngIf="posts.length <= 0">You haven't made any posts yet.</p>
+<p class="info-text mat-body-1" *ngIf="posts.length <= 0">No signatures yet.</p>
+<div id="spacer"></div>

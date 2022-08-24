@@ -6,3 +6,7 @@
 .info-text {
   text-align: center;
 }
+
+div#spacer {
+  padding-top: 5em;
+}
