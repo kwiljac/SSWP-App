@@ -10,3 +10,7 @@
 div#spacer {
   padding-top: 5em;
 }
+
+mat-action-row {
+  padding-right: 1em;
+}
